@@ -54,7 +54,7 @@ var posts = [
         }
     ];
 
-    /*var users = [{
+    var users = [{
             id: "txgw35",
             username: "test",
             password: "pwd"
@@ -63,7 +63,7 @@ var posts = [
             id: "xvj2f2",
             username: "john",
             password: "doe"
-        }];*/
+        }];
 
 app.get('/posts/relevant', function(req, res) {
     res.json(posts);
@@ -81,7 +81,7 @@ app.listen(app.get('port'), function() {
 app.post('/login', function(req,res){
     console.log("test");
     console.log(req.body);
-    var u = posts.users.find(function(element){
+    var u = users.find(function(element){
          return (element.username === req.body.username) && (element.password === req.body.password);
     });
 
@@ -101,20 +101,20 @@ app.post('/register', function(req,res){
   res.send() ;
   console.log(req.body.username);
   console.log(req.body.password);
-  //var randomId = Math.random().toString(36).slice(-6);
+  var randomId = Math.random().toString(36).slice(-6);
   var registerData = {
-    id: 4,
+    //id: 4,
     username: req.body.username,
     password: req.body.password,
-    fullName: "Oscar Stravosky",
-    profileImageSmall: "https://pbs.twimg.com/profile_images/750300510264107008/G8-PA5KA.jpg"
+    //fullName: "Oscar Stravosky",
+    //profileImageSmall: "https://pbs.twimg.com/profile_images/750300510264107008/G8-PA5KA.jpg"
   }
   console.log(registerData);
   console.log("-----------------------");
-  //users.push(randomId, req.body.username, req.body.password);
-  posts.users.push(registerData);
+  users.push(randomId, req.body.username, req.body.password);
+  //posts.users.push(registerData);
   for (var i = 0 ; i < posts.users.length ; i++)
-    console.log(posts.users[i].username);
+    console.log(users[i].username);
 
 
 });
