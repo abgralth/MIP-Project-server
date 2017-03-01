@@ -111,8 +111,8 @@ app.post('/register', function(req,res){
   }
   console.log(registerData);
   console.log("-----------------------");
-  users.push(randomId, req.body.username, req.body.password);
-  //posts.users.push(registerData);
+  //users.push(randomId, req.body.username, req.body.password);
+  users.push(registerData);
   for (var i = 0 ; i < posts.users.length ; i++)
     console.log(users[i].username);
 
